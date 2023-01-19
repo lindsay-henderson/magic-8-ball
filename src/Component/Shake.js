@@ -3,7 +3,7 @@ import './Ball.css'
 
 class ShakeBall extends Component {
   static defaultProps = {
-  answers: ["one", "two", "three", "four", "five", "six"],
+  answers: ["yes", "no", "it is certain", "doubtful", "try again later"],
   toughLove: ["banana", "sandwich", "tacos"],
   thinking: ["asking the cosmos", "hmmmm...", "listening to the spirits", "thinking"]
   }

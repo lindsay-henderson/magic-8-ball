@@ -8,8 +8,8 @@
 
 .answer {
   background-image: url('../../public/ball-face.png');
-  height: 400px;
-  width:400px;
+  height: 500px;
+  width:500px;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -27,7 +27,8 @@
   justify-content: center;
   align-items: center;
   color: aliceblue;
-  height: 150px;
-  width:150px;
-  border: 3px red;
+  height: 120px;
+  width:120px;
+  padding: 40px 40px 10px;
+  margin:0 0 30px 
 }
