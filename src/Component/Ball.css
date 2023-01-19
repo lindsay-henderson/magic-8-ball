@@ -1,0 +1,10 @@
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.text {
+  border: 3mm solid red;
+  transition: opacity 1s ease;
+}

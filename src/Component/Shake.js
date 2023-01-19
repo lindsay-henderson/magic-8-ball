@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import './Ball.css'
 
 class ShakeBall extends Component {
   static defaultProps = {
@@ -9,16 +10,19 @@ class ShakeBall extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {face:" ", thinking:null, classic:true, tough:false, shaking:false, option:1}
+    this.state = {
+      face:" ", 
+      thinking:null, 
+      classic:true, 
+      tough:false, 
+      shaking:false,
+      opacity: 1
+    }
     this.shake = this.shake.bind(this)
     this.switch = this.switch.bind (this)
   }
+
   shake () {
-    // if (this.state.classic) { 
-    //   newAns =  this.props.answers[Math.floor(Math.random()* this.props.answers.length)]
-    // } else {
-    //   newAns =  this.props.toughLove[Math.floor(Math.random()* this.props.toughLove.length)]
-    // }
 
     const newAns = this.state.classic? this.props.answers[Math.floor(Math.random()* this.props.answers.length)] : this.props.toughLove[Math.floor(Math.random()* this.props.toughLove.length)]
 
@@ -26,13 +30,14 @@ class ShakeBall extends Component {
 
     this.setState({face:newAns, thinking:newThink, shaking:true})
     
-    setTimeout (() => {
+    setTimeout(() => {
       this.setState({shaking:false})
     }, 1000)
   }
-  
+
   switch () {
-    this.state.classic? this.setState({ classic:false}) : this.setState ({classic:true})
+    this.state.classic? this.setState({ classic:false }): this.setState ({classic:true})
+    this.setState({ face: null, shaking:false })
   }
   
   render () {
