@@ -3,7 +3,7 @@ import './Ball.css'
 
 class ShakeBall extends Component {
   static defaultProps = {
-  answers: [" ", "one", "two", "three", "four", "five", "six"],
+  answers: ["one", "two", "three", "four", "five", "six"],
   toughLove: ["banana", "sandwich", "tacos"],
   thinking: ["asking the cosmos", "hmmmm...", "listening to the spirits", "thinking"]
   }
@@ -49,7 +49,7 @@ class ShakeBall extends Component {
             {this.state.face}
           </p>
         </div>
-        <button onClick={this.shake}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</button>
+        <button onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</button>
         <br/>
       </div>
     )
