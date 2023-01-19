@@ -1,10 +1,32 @@
+.eight-ball {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.answer {
+  background-image: url('../../public/ball-face.png');
+  height: 400px;
+  width:400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .text {
-  border: 3mm solid red;
-  transition: opacity 1s ease;
+  background-image: url('../../public/triangle.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  height: 150px;
+  width:150px;
+  border: 3px red;
 }
