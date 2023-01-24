@@ -1,10 +1,11 @@
 import React, {Component} from "react";
+import { Button } from "@mui/material";
 import './Ball.css'
 
 class ShakeBall extends Component {
   static defaultProps = {
   answers: ["yes", "no", "it is\ncertain", "doubtful", "try\nagain later"],
-  toughLove: ["banana", "sandwich", "tacos"],
+  toughLove: ["ask\nyour mother", "wow\nthat's embarrassing", "you\nneed\na nap", "you've\ngot to \nbe kidding"],
   thinking: ["asking the cosmos", "hmmmm...", "listening to the spirits", "thinking"]
   }
 
@@ -16,14 +17,14 @@ class ShakeBall extends Component {
       classic:true, 
       tough:false, 
       shaking:false,
-      opacity: 1
+      opacity: 1  
     }
+
     this.shake = this.shake.bind(this)
     this.switch = this.switch.bind (this)
   }
 
   shake () {
-
     const newAns = this.state.classic? this.props.answers[Math.floor(Math.random()* this.props.answers.length)] : this.props.toughLove[Math.floor(Math.random()* this.props.toughLove.length)]
 
     const newThink = this.props.thinking[Math.floor(Math.random()* this.props.thinking.length)]
@@ -34,26 +35,32 @@ class ShakeBall extends Component {
       this.setState({shaking:false})
     }, 1000)
   }
-
+  
   switch () {
     this.state.classic? this.setState({ classic:false }): this.setState ({classic:true})
     this.setState({ face: null, shaking:false })
   }
-  
-  render () {
+
+  render () 
+  {
     return (
+
       <div className="eight-ball">
-        <button onClick={this.switch}>{this.state.classic? `Get some Tough Love` : 'Classic Answers'}</button>
-        <div className="answer">
-          <p className="text">
+        <section id= 'button-box'>
+        <Button variant="contained" size = "large" color="secondary" id='shakeme' onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</Button>
+        </section>
+        <div className= 'answer' id = {this.state.shaking? 'wiggle' : ''}>
+          <p id = 'text'>
             {this.state.face}
           </p>
         </div>
-        <button onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</button>
         <br/>
-      </div>
+        <Button variant="contained" color="secondary" onClick={this.switch}>{this.state.classic? `Get some Tough Love` : 'Classic Answers'}</Button>
+        
+    </div>
     )
   }
 }
+
 
 export default ShakeBall

@@ -1,24 +1,27 @@
 .eight-ball {
-  margin: 40px 0 0 0;
+  padding: 40px 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-self: center;
+  text-align: center;
 }
 
 .answer {
   background-image: url('../../public/ball-face.png');
-  height: 500px;
-  width:500px;
+  height: 600px;
+  width:600px;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 30px;
 }
 
-.text {
+#text {
   background-image: url('../../public/triangle.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -27,9 +30,46 @@
   justify-content: center;
   align-items: center;
   color: aliceblue;
-  height: 120px;
-  width:120px;
-  padding: 40px 40px 10px;
+  height: 200px;
+  width:200px;
+  padding: 40px 40px 40px;
   margin:0 0 30px;
   white-space: pre-wrap;
+}
+
+#button-box {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgb(255, 255, 255,.5), rgba(80, 58, 58, 0.3),rgb(255, 255, 255,.5));
+  border-radius: 10px;
+  height: 100px;
+  width: 250px;
+}
+
+#wiggle {
+  animation-name: dicey;
+  animation-duration: 1s;
+
+}
+
+@keyframes dicey {
+  from {
+		transform: none;
+	}
+	20% {
+		transform: translate3d(-20%, 0, 0) rotate3d(0, 0, 1, -10deg);
+	}
+	40% {
+		transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 5deg);
+	}
+	50% {
+		transform: translate3d(-10%, 0, 0) rotate3d(0, 0, 1, -10deg);
+	}
+	60% {
+		transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 5deg);
+	}
+	to {
+		transform: none;
+	}
 }
