@@ -44,18 +44,17 @@ class ShakeBall extends Component {
   render () 
   {
     return (
-
       <div className="eight-ball">
         <section id= 'button-box'>
-        <Button variant="contained" size = "large" color="secondary" id='button' onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</Button>
+        <Button variant="contained" size ="large" color="primary" id='button' onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</Button>
         </section>
         <div className= 'answer' id = {this.state.shaking? 'wiggle' : ''}>
-          <p id = 'text'>
+          <p className='text'id = {this.state.shaking? 'fade' : ''}>
             {this.state.face}
           </p>
         </div>
         <br/>
-        <Button variant="contained" id='button' color="secondary" onClick={this.switch}>{this.state.classic? `Get some Tough Love` : 'Classic Answers'}</Button>
+        <Button variant="contained" id='button' color="primary"  size = "large" onClick={this.switch}>{this.state.classic? `Get some Tough Love` : 'Classic Answers'}</Button>
         
     </div>
     )
