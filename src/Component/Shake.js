@@ -5,7 +5,7 @@ import './Ball.css'
 class ShakeBall extends Component {
   static defaultProps = {
   answers: ["yes", "no", "it is\ncertain", "\ndoubtful", "try\nagain later"],
-  toughLove: ["ask\nyour mother", "wow\nthat's embarrassing", "you\nneed\na nap", "seriously?"],
+  toughLove: ["ask\nyour mother", "wow\nthat's embarrassing", "you\nneed\na nap", "\nseriously?"],
   thinking: ["asking the cosmos", "hmmmm...", "listening to the spirits", "thinking"]
   }
 
