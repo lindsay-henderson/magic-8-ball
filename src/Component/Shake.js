@@ -4,8 +4,8 @@ import './Ball.css'
 
 class ShakeBall extends Component {
   static defaultProps = {
-  answers: ["yes", "no", "it is\ncertain", "doubtful", "try\nagain later"],
-  toughLove: ["ask\nyour mother", "wow\nthat's embarrassing", "you\nneed\na nap", "you've\ngot to \nbe kidding"],
+  answers: ["yes", "no", "it is\ncertain", "\ndoubtful", "try\nagain later"],
+  toughLove: ["ask\nyour mother", "wow\nthat's embarrassing", "you\nneed\na nap", "seriously?"],
   thinking: ["asking the cosmos", "hmmmm...", "listening to the spirits", "thinking"]
   }
 
@@ -47,7 +47,7 @@ class ShakeBall extends Component {
 
       <div className="eight-ball">
         <section id= 'button-box'>
-        <Button variant="contained" size = "large" color="secondary" id='shakeme' onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</Button>
+        <Button variant="contained" size = "large" color="secondary" id='button' onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</Button>
         </section>
         <div className= 'answer' id = {this.state.shaking? 'wiggle' : ''}>
           <p id = 'text'>
@@ -55,7 +55,7 @@ class ShakeBall extends Component {
           </p>
         </div>
         <br/>
-        <Button variant="contained" color="secondary" onClick={this.switch}>{this.state.classic? `Get some Tough Love` : 'Classic Answers'}</Button>
+        <Button variant="contained" id='button' color="secondary" onClick={this.switch}>{this.state.classic? `Get some Tough Love` : 'Classic Answers'}</Button>
         
     </div>
     )
