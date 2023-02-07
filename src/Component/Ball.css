@@ -9,6 +9,18 @@
   text-align: center;
 }
 
+.hide {
+  background-image: url('../../public/ball-front.png');
+  height: 600px;
+  width:600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .answer {
   background-image: url('../../public/ball-face.png');
   height: 600px;
@@ -90,7 +102,7 @@
   }
 }
 @media screen and (max-width: 600px){
-  .answer {
+  .answer, .hide {
     height: 350px;
     width: 350px;
   }

@@ -48,8 +48,8 @@ class ShakeBall extends Component {
         <section id= 'button-box'>
         <Button variant="contained" size ="large" color="primary" id='button' onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</Button>
         </section>
-        <div className= 'answer' id = {this.state.shaking? 'wiggle' : ''}>
-          <p className='text'id = {this.state.shaking? 'fade' : ''}>
+        <div className= {this.state.face === ' '? 'hide' : 'answer'} id = {this.state.shaking? 'wiggle' : ''}>
+          <p className= {this.state.face === ' '? 'hide' : 'text'} id = {this.state.shaking? 'fade' : ''}>
             {this.state.face}
           </p>
         </div>
