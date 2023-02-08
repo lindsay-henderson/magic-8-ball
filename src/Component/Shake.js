@@ -30,15 +30,14 @@ class ShakeBall extends Component {
     do { 
       newAns = this.state.classic? choice(this.props.answers) : choice(this.props.toughLove)
     }
-      while     
-      (newAns === this.state.tough)
-      this.setState({tough:newAns})
-      while 
-      (newAns === this.state.classic)
+    while     
+    (newAns === this.state.tough)
+    this.setState({tough:newAns})
+    while 
+    (newAns === this.state.classic)
     this.setState({classic:newAns})
     
-
-    const newThink = this.props.thinking[Math.floor(Math.random()* this.props.thinking.length)]
+    const newThink = choice(this.props.thinking)
 
     this.setState({face:newAns, thinking:newThink, shaking:true})
     
@@ -64,12 +63,11 @@ class ShakeBall extends Component {
     this.setState({ face: null, shaking:false })
   }
 
-  render () 
-  {
+  render () {
     return (
       <div className="eight-ball">
         <section id= 'button-box'>
-        <Button variant="contained" size ="large" color="primary" id='button' onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</Button>
+          <Button variant="contained" size ="large" color="primary" id='button' onClick={this.shake} disabled={this.state.shaking}>{this.state.shaking? `${this.state.thinking}` : 'shake me'}</Button>
         </section>
         <div className= {this.state.face === ' '? 'hide' : 'answer'} id = {this.state.shaking? 'wiggle' : ''}>
           <p className= {this.state.face === ' '? 'hide' : 'text'} id = {this.state.shaking? 'fade' : ''}>
@@ -78,10 +76,8 @@ class ShakeBall extends Component {
         </div>
         <br/>
         <Button variant="contained" id='button' color="primary"  size = "large" onClick={this.switch}>{this.state.classic? `Get some Tough Love` : 'Classic Answers'}</Button>
-        
-    </div>
-    )
-  }
+      </div>
+    )}
 }
 
 
