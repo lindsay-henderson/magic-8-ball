@@ -6,7 +6,7 @@ import './Ball.css'
 class ShakeBall extends Component {
   static defaultProps = {
   answers: ["yes", "no", "it is\ncertain", "\ndoubtful", "try\nagain later", "definitely"],
-  toughLove: ["ask\nyour mother", "wow\nthat's embarrassing", "you\nneed\na nap", "\nseriously?", "just\ndo it \n already", "you're asking\n me?"],
+  toughLove: ["ask\nyour mother", "wow\nthat's embarrassing", "you\nneed\na nap", "\nseriously?", "just\ndo it \n already", "you're asking\n me?", "stop \n procrastinating"],
   thinking: ["asking the cosmos", "hmmmm...", "listening to the spirits", "thinking"]
   }
 
@@ -45,18 +45,6 @@ class ShakeBall extends Component {
       this.setState({shaking:false})
     }, 1000)
   }
-
-  // shake () {
-  //   const newAns = this.state.classic? this.props.answers[Math.floor(Math.random()* this.props.answers.length)] : this.props.toughLove[Math.floor(Math.random()* this.props.toughLove.length)]
-
-  //   const newThink = this.props.thinking[Math.floor(Math.random()* this.props.thinking.length)]
-
-  //   this.setState({face:newAns, thinking:newThink, shaking:true})
-    
-  //   setTimeout(() => {
-  //     this.setState({shaking:false})
-  //   }, 1000)
-  // }
   
   switch () {
     this.state.classic? this.setState({ classic:false }): this.setState ({classic:true})
@@ -71,7 +59,9 @@ class ShakeBall extends Component {
         </section>
         <div className= {this.state.face === ' '? 'hide' : 'answer'} id = {this.state.shaking? 'wiggle' : ''}>
           <p className= {this.state.face === ' '? 'hide' : 'text'} id = {this.state.shaking? 'fade' : ''}>
+            <p>
             {this.state.face}
+            </p>
           </p>
         </div>
         <br/>
