@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import { Button } from "@mui/material";
+import { choice } from "./helpers";
 import './Ball.css'
 
 class ShakeBall extends Component {
   static defaultProps = {
-  answers: ["yes", "no", "it is\ncertain", "\ndoubtful", "try\nagain later"],
-  toughLove: ["ask\nyour mother", "wow\nthat's embarrassing", "you\nneed\na nap", "\nseriously?"],
+  answers: ["yes", "no", "it is\ncertain", "\ndoubtful", "try\nagain later", "definitely"],
+  toughLove: ["ask\nyour mother", "wow\nthat's embarrassing", "you\nneed\na nap", "\nseriously?", "just\ndo it \n already", "you're asking\n me?"],
   thinking: ["asking the cosmos", "hmmmm...", "listening to the spirits", "thinking"]
   }
 
@@ -25,7 +26,17 @@ class ShakeBall extends Component {
   }
 
   shake () {
-    const newAns = this.state.classic? this.props.answers[Math.floor(Math.random()* this.props.answers.length)] : this.props.toughLove[Math.floor(Math.random()* this.props.toughLove.length)]
+    let newAns
+    do { 
+      newAns = this.state.classic? choice(this.props.answers) : choice(this.props.toughLove)
+    }
+      while     
+      (newAns === this.state.tough)
+      this.setState({tough:newAns})
+      while 
+      (newAns === this.state.classic)
+    this.setState({classic:newAns})
+    
 
     const newThink = this.props.thinking[Math.floor(Math.random()* this.props.thinking.length)]
 
@@ -35,6 +46,18 @@ class ShakeBall extends Component {
       this.setState({shaking:false})
     }, 1000)
   }
+
+  // shake () {
+  //   const newAns = this.state.classic? this.props.answers[Math.floor(Math.random()* this.props.answers.length)] : this.props.toughLove[Math.floor(Math.random()* this.props.toughLove.length)]
+
+  //   const newThink = this.props.thinking[Math.floor(Math.random()* this.props.thinking.length)]
+
+  //   this.setState({face:newAns, thinking:newThink, shaking:true})
+    
+  //   setTimeout(() => {
+  //     this.setState({shaking:false})
+  //   }, 1000)
+  // }
   
   switch () {
     this.state.classic? this.setState({ classic:false }): this.setState ({classic:true})
